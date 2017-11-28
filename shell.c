@@ -13,7 +13,7 @@ char* getNextImput(){
 	return ans;
 }
 
-char ** parse_args ( char* line ){
+char ** parse_args ( char * line ){
   char ** args = (char **) malloc(sizeof(char *) * 6);
   int i = 0;
   while(line){
@@ -26,7 +26,10 @@ char ** parse_args ( char* line ){
 
 int main(){
 	char *run = getNextImput();
-	char **args = parse_args(run);
+	char mutable[50];
+	strcpy(run, mutable);
+	char **args = parse_args(mutable);
+	printf("%S", mutable);
 	execvp(args[0], args);
 }
 
