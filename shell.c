@@ -27,10 +27,14 @@ char ** parse_args ( char * line ){
 int main(){
 	char *run = getNextImput();
 	char mutable[50];
-	strcpy(run, mutable);
+	int len = strcspn(run, "\n");
+	strncpy(mutable, run, len);
+	mutable[len] = 0;
 	char **args = parse_args(mutable);
-	printf("%S", mutable);
 	execvp(args[0], args);
+	printf("%s\n", mutable);
+	printf("%d\n", len);
+	printf("%s\n", strerror(errno));
 }
 
 
