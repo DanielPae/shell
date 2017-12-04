@@ -92,7 +92,7 @@ char ** parse ( char *line, char *split ){
   return args;
 }
 
-int my_cd(char * filename){
+void my_cd(char * filename){
 	char path[258];
 	getcwd(path, 255);
 	strcat(path, "/");
